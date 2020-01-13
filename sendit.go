@@ -1,3 +1,4 @@
+// this Package is from https://github.com/gadelkareem/go-helpers for personal use
 package sendit
 
 import (
