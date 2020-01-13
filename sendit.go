@@ -1,4 +1,5 @@
 // this Package is from https://github.com/gadelkareem/go-helpers for personal use
+// user must pull package into their local repo by using "go get github.com/fl0wmaster6000/sendit"
 package sendit
 
 import (
