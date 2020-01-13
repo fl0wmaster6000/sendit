@@ -13,7 +13,7 @@ import (
 // ex: SendMail("127.0.0.1:25", (&mail.Address{"from name", "from@example.com"}).String(),
 // "Email Subject", "message body", []string{(&mail.Address{"to name", "to@example.com"}).String()})
 
-func SendMail(addr string, from string, subject string, body string, to []string) error {
+func SendMail(addr string, from string, subject string, date string, body string, to []string) error {
 	r := strings.NewReplacer( "\r\n", "", "\r", "", "\n", "", "%0a", "",  "%0d", "")
 
 	tlsconfig := &tls.Config{
@@ -46,7 +46,7 @@ func SendMail(addr string, from string, subject string, body string, to []string
 	//create the actual smtp mail (not the envelope. Envelope is set above)
 	// 'to' is an array of strings
 
-	msg := "To: " + strings.Join(to, ",") + "\r\n" + "From: " + from + "\r\n" + "Subject: " + subject + "\r\n" +
+	msg := "To: " + strings.Join(to, ",") + "\r\n" + "From: " + from + "\r\n" + "Date: " + date + "\r\n" + "Subject: " + subject + "\r\n" +
 		"Content-Type: text/html; charset=\"UTF-8\"\r\n" + "Content-Transfer-Encoding: base64\r\n" + "\r\n" +
 		base64.StdEncoding.EncodeToString([]byte(body))  // []byte(body) changes the "body" string to a byte array
 
