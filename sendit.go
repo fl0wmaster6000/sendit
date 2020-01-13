@@ -4,9 +4,9 @@ package sendit
 import (
 	"crypto/tls"
 	"encoding/base64"
-"log"
-"net/smtp"
-"strings"
+	"log"
+	"net/smtp"
+	"strings"
 )
 
 // ex: SendMail("127.0.0.1:25", (&mail.Address{"from name", "from@example.com"}).String(),
