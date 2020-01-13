@@ -21,7 +21,7 @@ func SendMail(addr string, from string, subject string, date string, body string
 		ServerName:         addr,
 	}
 
-	c, err := smtp.Dial("tcp", addr, tlsconfig)   // c is a net/smtp Client structure
+	c, err := smtp.Dial(addr, tlsconfig)   // c is a net/smtp Client structure
 	if err != nil {
 		log.Fatal(err)
 	}
