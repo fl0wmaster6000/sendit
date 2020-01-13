@@ -3,7 +3,6 @@
 package sendit
 
 import (
-	"crypto/tls"
 	"encoding/base64"
 	"log"
 	"net/smtp"
@@ -16,12 +15,7 @@ import (
 func SendMail(addr string, from string, subject string, date string, body string, to []string) error {
 	r := strings.NewReplacer( "\r\n", "", "\r", "", "\n", "", "%0a", "",  "%0d", "")
 
-	tlsconfig := &tls.Config{
-		InsecureSkipVerify: true,
-		ServerName:         addr,
-	}
-
-	c, err := smtp.Dial(addr, tlsconfig)   // c is a net/smtp Client structure
+	c, err := smtp.Dial(addr)   // c is a net/smtp Client structure
 	if err != nil {
 		log.Fatal(err)
 	}
